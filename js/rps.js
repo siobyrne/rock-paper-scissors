@@ -18,8 +18,6 @@ getComputerChoice(choices);
 
 function playRound(playerChoice, computerChoice){
 
-   // let computerChoice = getComputerChoice().toLowerCase();
-   // let playerChoice = playerChoice.toLowerCase();
 
     if (computerChoice === playerChoice){
     return "Tie game!"; 
@@ -34,6 +32,15 @@ function playRound(playerChoice, computerChoice){
     }
 }
 
-const playerChoice = 'rock';
-const computerChoice = getComputerChoice(choices);
+let player = prompt('Paper, scissors, or rock?');
+let computer = getComputerChoice(choices);
+const playerChoice = player.toLowerCase();
+const computerChoice = computer.toLowerCase();
 console.log(playRound(playerChoice, computerChoice));
+
+function game(){
+
+    for (i = 0; i > 5; i++){
+        
+    }
+}
