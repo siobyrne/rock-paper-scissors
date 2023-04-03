@@ -1,5 +1,5 @@
 // Rock, Paper, Scissors Game
-
+const choices = ['rock', 'paper', 'scissors'];
 
 function getComputerChoice(array) {
 
@@ -10,14 +10,30 @@ function getComputerChoice(array) {
         [array[i], array[j]] = [array[j], array[i]];
 
         }
-        
-        console.log(array[0]);  
-        return array[0];
+         
+        return (array[0]);
 }
-
-let choices = ['rock', 'paper', 'scissors'];
 
 getComputerChoice(choices);
 
+function playRound(playerChoice, computerChoice){
 
+   // let computerChoice = getComputerChoice().toLowerCase();
+   // let playerChoice = playerChoice.toLowerCase();
 
+    if (computerChoice === playerChoice){
+    return "Tie game!"; 
+    }
+
+    else if (computerChoice === 'rock' && playerChoice === 'paper'){
+    return "You win!";
+    }
+
+    else if (computerChoice === 'paper' && playerChoice === 'rock'){
+        return "Computer wins!";
+    }
+}
+
+const playerChoice = 'rock';
+const computerChoice = getComputerChoice(choices);
+console.log(playRound(playerChoice, computerChoice));
