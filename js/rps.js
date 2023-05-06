@@ -22,8 +22,6 @@ function getComputerChoice(array) {
       // `${array[i]}`
 }
 
-//getComputerChoice(choices);
-
 function playRound(playerChoice, computerChoice){
 
     computerChoice = getComputerChoice(choices).toLowerCase();
@@ -34,20 +32,21 @@ function playRound(playerChoice, computerChoice){
 
     if (computerChoice === playerChoice){
     console.log("Tie game!"); 
+    displayResults("Tie Game");
     }
 
     else if ((computerChoice == 'rock' && playerChoice == 'scissors') ||
     (computerChoice == 'paper' && playerChoice == 'rock') ||
     (computerChoice == 'scissors' && playerChoice == 'paper')){
         console.log("Computer wins");
+        displayResults("Computer wins!");
     }
 
     else {
         console.log("You win");
+        displayResults("You win!");
     }
 }
-  
-
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -60,6 +59,11 @@ buttons.forEach((button) => {
     });
   });
 
+  function displayResults(str){
+    let text = document.querySelector('.score-container');
+
+    text.innerHTML += str;
+  }
 
 
 //function game(){
