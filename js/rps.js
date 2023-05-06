@@ -1,5 +1,12 @@
 // Rock, Paper, Scissors Game
 const choices = ['rock', 'paper', 'scissors'];
+let buttons = document.querySelectorAll("button");
+//let player = prompt('Paper, scissors, or rock?');
+let computer = getComputerChoice(choices);
+//const playerChoice = player.toLowerCase();
+const computerChoice = computer.toLowerCase();
+
+console.log(buttons);
 
 function getComputerChoice(array) {
 
@@ -11,36 +18,56 @@ function getComputerChoice(array) {
 
         }
          
-        return (array[0]);
+       return (array[0]);
+      // `${array[i]}`
 }
 
-getComputerChoice(choices);
+//getComputerChoice(choices);
 
 function playRound(playerChoice, computerChoice){
 
+    computerChoice = getComputerChoice(choices).toLowerCase();
+    playerChoice = playerChoice.toLowerCase();
+
+    console.log(computerChoice);
+    console.log(playerChoice);
 
     if (computerChoice === playerChoice){
-    return "Tie game!"; 
+    console.log("Tie game!"); 
     }
 
-    else if (computerChoice === 'rock' && playerChoice === 'paper'){
-    return "You win!";
+    else if ((computerChoice == 'rock' && playerChoice == 'scissors') ||
+    (computerChoice == 'paper' && playerChoice == 'rock') ||
+    (computerChoice == 'scissors' && playerChoice == 'paper')){
+        console.log("Computer wins");
     }
 
-    else if (computerChoice === 'paper' && playerChoice === 'rock'){
-        return "Computer wins!";
-    }
-}
-
-let player = prompt('Paper, scissors, or rock?');
-let computer = getComputerChoice(choices);
-const playerChoice = player.toLowerCase();
-const computerChoice = computer.toLowerCase();
-console.log(playRound(playerChoice, computerChoice));
-
-function game(){
-
-    for (i = 0; i > 5; i++){
-        
+    else {
+        console.log("You win");
     }
 }
+  
+
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+     const playerChoice = button.value;
+     // playerChoice = choice.value.toLowerCase();
+
+      console.log(playerChoice);
+  
+      playRound(playerChoice, computerChoice);
+    });
+  });
+
+
+
+//function game(){
+//    
+//    for (let i = 0; i > 6; i++){
+//
+//        playRound(playerChoice, computerChoice); 
+//    }
+//
+//    
+//}
