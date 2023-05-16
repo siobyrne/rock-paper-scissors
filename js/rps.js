@@ -5,6 +5,8 @@ let buttons = document.querySelectorAll("button");
 let computer = getComputerChoice(choices);
 //const playerChoice = player.toLowerCase();
 const computerChoice = computer.toLowerCase();
+let playerScore = 0;
+let computerScore = 0;
 
 console.log(buttons);
 
@@ -39,12 +41,16 @@ function playRound(playerChoice, computerChoice){
     (computerChoice == 'paper' && playerChoice == 'rock') ||
     (computerChoice == 'scissors' && playerChoice == 'paper')){
         console.log("Computer wins");
-        displayResults("Computer wins!");
+        computerScore = ++computerScore;
+        displayResults(`Computer wins! Their score is ${computerScore}`);
     }
 
     else {
         console.log("You win");
-        displayResults("You win!");
+        playerScore = ++ playerScore;
+        displayResults(`You win! Your score is ${playerScore}`);
+        
+        
     }
 }
 
@@ -58,6 +64,11 @@ buttons.forEach((button) => {
       playRound(playerChoice, computerChoice);
     });
   });
+
+  function keepScore(){
+
+
+  }
 
   function displayResults(str){
     let text = document.querySelector('.score-container');
